@@ -31,7 +31,12 @@ process[pos]=temp;
 }
 for(i=0;i<n;i++)
 {
-printf("process %d:%d",i+1,&bursttime[i]);
+	completiontime[i+1]=completiontime[i]+bursttime[i+1];
+}
+for(i=0;i<n;i++)
+{
+	printf("\nProcess %d: burst time: %d  Completion time: %d",process[i],bursttime[i],completiontime[i]);
+
 }
 return 0;
 }
