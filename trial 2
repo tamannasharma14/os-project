@@ -46,6 +46,12 @@ for(i=0;i<n;i++)
 printf("\nProcess %d: burst time: %d  Completion time: %d",process[i],bursttime[i],completiontime[i]);
 }
 }
-
+else if(z==2)
+{ 
+     int k;
+	printf("\nenter process no. of which you want to get the completion time");
+	scanf("%d",&k);
+	printf("\nProcess %d: burst time: %d  Completion time: %d",process[k+1],bursttime[k+1],completiontime[k+1]);
+}
 return 0;
 }
