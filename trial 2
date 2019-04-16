@@ -30,16 +30,22 @@ process[i]=process[pos];
 process[pos]=temp;
 }
 completiontime[0]=bursttime[0];
-
+printf("\nProcess Sequence");
 for(i=0;i<n;i++)
 {
 	printf("\nProcess %d: burst time: %d",process[i],bursttime[i]);
 	completiontime[i+1]=completiontime[i]+bursttime[i+1];
 }
+int z;
+printf("\nenter 1 for printing deatails for all processes and 2 if u want for a particular process only");
+scanf("%d",&z);
+if(z==1)
+{
 for(i=0;i<n;i++)
 {
-	printf("\nProcess %d: burst time: %d  Completion time: %d",process[i],bursttime[i],completiontime[i]);
-
+printf("\nProcess %d: burst time: %d  Completion time: %d",process[i],bursttime[i],completiontime[i]);
 }
+}
+
 return 0;
 }
