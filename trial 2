@@ -2,16 +2,28 @@
 int main()
 {
 int bursttime[20],process[20],completiontime[20];
-int i,j,n;
-printf("Enter the number of processes");
+int i,j,n,a;
+a:
+printf("\nEnter the number of processes");
 scanf("%d",&n);
-printf("Enter the Burst time");
+if(n<=0)
+{
+	printf("\nenter valid no of processes");
+	goto a;
+}
+printf("\nEnter the Burst time");
 for(i=0;i<n;i++)
 {
 printf("\nProcess %d:",i+1);
 scanf("%d",&bursttime[i]);
 process[i]=i+1;
+if(bursttime[i]<0)
+{
+	printf("\nburst time entered is not valid");
+	goto a;
+}
 } 
+
 int pos,temp;
 for(i=0;i<n;i++)
 {
@@ -32,10 +44,11 @@ process[pos]=temp;
 completiontime[0]=bursttime[0];
 printf("\nProcess Sequence");
 for(i=0;i<n;i++)
-{
+{    
 	printf("\nProcess %d: burst time: %d",process[i],bursttime[i]);
 	completiontime[i+1]=completiontime[i]+bursttime[i+1];
 }
+b:
 int z;
 printf("\nenter 1 for printing deatails for all processes and 2 if u want for a particular process only");
 scanf("%d",&z);
@@ -45,13 +58,35 @@ for(i=0;i<n;i++)
 {
 printf("\nProcess %d: burst time: %d  Completion time: %d",process[i],bursttime[i],completiontime[i]);
 }
+printf("do you want to exit if yes press 1 or press 0");
+int h;
+scanf("%d",&h);
+if(h==0)
+{
+	goto b;
+}
+else
+{
+	return 0;
+}
 }
 else if(z==2)
 { 
      int k;
 	printf("\nenter process no. of which you want to get the completion time");
 	scanf("%d",&k);
-	printf("\nProcess %d: burst time: %d  Completion time: %d",process[k-1],bursttime[k-1],completiontime[k-1]);
+	printf("\nProcess %d: burst time: %d  Completion time: %d",process[k+1],bursttime[k+1],completiontime[k+1]);
+	printf("do you want to exit if yes press 1 or press 0");
+int h;
+scanf("%d",&h);
+if(h==0)
+{
+	goto b;
+}
+else
+{
+	return 0;
+}
 }
 return 0;
 }
